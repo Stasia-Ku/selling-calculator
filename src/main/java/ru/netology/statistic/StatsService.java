@@ -4,28 +4,23 @@ public class StatsService {
     public int sellingAmount(int[] sellingByMonth) {
         int result = 0;
 
-        for(int i=0;i<sellingByMonth.length;i++) {
+        for(int i = 0; i < sellingByMonth.length; i++) {
             result += sellingByMonth[i];
         }
 
         return result;
     }
     public double averageSelling(int[] sellingByMonth) {
-        double result = 0;
-
-        for(int i=0;i<sellingByMonth.length;i++) {
-            result += sellingByMonth[i];
-        }
-
-        return result/sellingByMonth.length;
+        int result = sellingAmount(sellingByMonth) / sellingByMonth.length;
+        return result;
     }
     public int monthWithBestSelling(int[] sellingByMonth) {
         int result = 1;
         int maxValue = sellingByMonth[0];
 
-        for(int i=1;i<sellingByMonth.length;i++) {
+        for(int i = 1; i < sellingByMonth.length; i++) {
             if (sellingByMonth[i] >= maxValue) {
-                result = i+1;
+                result = i + 1;
                 maxValue = sellingByMonth[i];
             };
         }
@@ -36,9 +31,9 @@ public class StatsService {
         int result = 1;
         int minValue = sellingByMonth[0];
 
-        for(int i=1;i<sellingByMonth.length;i++) {
+        for(int i = 1; i < sellingByMonth.length; i++) {
             if (sellingByMonth[i] <= minValue) {
-                result = i+1;
+                result = i + 1;
                 minValue = sellingByMonth[i];
             };
         }
@@ -49,7 +44,7 @@ public class StatsService {
         int result = 0;
         double average = averageSelling(sellingByMonth);
 
-        for(int i=0;i<sellingByMonth.length;i++) {
+        for(int i = 0; i < sellingByMonth.length; i++) {
             if(sellingByMonth[i] < average) result++;
         }
 
@@ -59,7 +54,7 @@ public class StatsService {
         int result = 0;
         double average = averageSelling(sellingByMonth);
 
-        for(int i=0;i<sellingByMonth.length;i++) {
+        for(int i = 0; i < sellingByMonth.length; i++) {
             if(sellingByMonth[i] > average) result++;
         }
 
